@@ -17,7 +17,16 @@ const personajesReducer = createSlice({
 export const obtenerAll = () => {
     return dispatch => {
         accionGet()
-        .then(res => dispatch(AllPersonajes(res.data.data)))
+        .then(res => {
+            dispatch(AllPersonajes(res.data.data));
+            window.localStorage.setItem('PersonajesMarvel', JSON.stringify(res.data.data));
+
+        })
+    }
+}
+export const obtenerLocal = (data) => {
+    return dispatch => {
+        dispatch(AllPersonajes(data))
     }
 }
 export const obtenerNext = (count) => {

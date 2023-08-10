@@ -1,11 +1,8 @@
 import imgLogo from '../assets/marvelComics.png';
 import {efectDarkMode} from '../assets/animations/efects'
 import { useEffect } from 'react';
+import {PingComponent} from './Comp.Complementario';
 
-const PingComponent = ({ident , colorPrimary, colorSegundary}) => (<span key={ident} id={`ping-${ident}`} className="ping relative flex h-3 w-3">
-<span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${colorSegundary} opacity-75`}></span>
-<span className={`relative inline-flex rounded-full h-3 w-3 ${colorPrimary}`}></span>
-</span>)
 export default function NavBar() {
 const SelectedPing = (item) => {
   const pings = document.querySelectorAll('.ping')
@@ -45,11 +42,8 @@ const SelectedPing = (item) => {
   
     <h1 className='font-sans text-xl font-semibold lg:text-3xl dark:text-white whitespace-nowrap'>Marvel Comics</h1>
         <input type="checkbox" id="drawer-toggle" className=" sr-only peer md:hidden " />
-    <label htmlFor="drawer-toggle" className="inline-block p-1  top-auto right-6 transition-all duration-500 bg-red-500 rounded-lg rotate-180 peer-checked:absolute peer-checked:-rotate-0 peer-checked:right-[75%] md:hidden">
-    <svg className="w-5 h-5 fill-current text-white" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" fillRule="evenodd"></path></svg>
-
-  
-    
+    <label htmlFor="drawer-toggle" className="inline-block p-1  top-auto right-6 transition-all duration-500 bg-red-500 rounded-lg rotate-180 peer-checked: peer-checked:absolute peer-checked:-rotate-0 peer-checked:right-[75%] md:hidden">
+      <svg className="w-5 h-5 fill-current text-white" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" fillRule="evenodd"></path></svg>
     </label>
         <div className="
         fixed 
@@ -72,6 +66,9 @@ const SelectedPing = (item) => {
         md:inline-flex 
         md:shadow-none 
         md:w-max">
+      <label htmlFor="drawer-toggle" className="hidden p-1  top-auto right-6 transition-all duration-500 bg-red-500 rounded-lg rotate-180 peer-checked:inline-block peer-checked:absolute peer-checked:-rotate-0 peer-checked:right-[75%] md:hidden">
+      <svg className="w-5 h-5 fill-current text-white" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+    </label>
           <img className='w-6/12 h-6/12 m-auto md:hidden ' src={imgLogo} />
             <ol className="
               px-6 

@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux'
-import NavListCharacters from './NavListCharacters'
+// import NavListCharacters from './NavListCharacters'
 import DropdownComponent from './DropComponents'
 import CardCharacter from './CardCharacter'
+import Pagination from './Pagination'
 
 export default function ListCharacterMarvel() {
     const data = useSelector(state => state.personajes)
@@ -85,7 +86,7 @@ export default function ListCharacterMarvel() {
                         [&>date]:dark:text-neutral-200
                         '>
                             <h3 >{personaje.name}</h3>
-                            <date >Modified: {FunccionExtrer(personaje.modified, 0 ,10)}</date>
+                            <h3 >Modified: {FunccionExtrer(personaje.modified, 0 ,10)}</h3>
                         </div>
                     </div>
                     <div 
@@ -114,7 +115,8 @@ export default function ListCharacterMarvel() {
             )
             })
         }
-        <NavListCharacters count={data.total}/>
+        {/* <NavListCharacters count={data.total}/> */}
+        <Pagination count={data.total} />
     </ul>
     )
 }
