@@ -5,6 +5,7 @@ import ListCharacterMarvel from './components/listCharacterMarvel'
 import { obtenerAll , obtenerLocal } from './reducer/personajesReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import Nav from './components/Nav'
+import {constantes} from './assets/custom/Strings.js'
 // import DropdownComponent from './components/DropComponents'
 // import NavBar from './components/NavBar'
 
@@ -13,14 +14,12 @@ function App() {
   const dispatch = useDispatch()
   const personajes = useSelector(state => state.personajes)
   useEffect(() => {
-    const Storage = window.localStorage.getItem('PersonajesMarvel')
+    const Storage = window.localStorage.getItem(constantes.TEXT_DATA_LOCAL)
     if (Storage) {
     const dataLocal = JSON.parse(Storage)
-    console.log('de manera local');
     return dispatch(obtenerLocal(dataLocal))
     }
     if('limit' in personajes === false){
-      console.log('enviando peticion');
      dispatch(obtenerAll())
     }
     

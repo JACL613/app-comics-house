@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import { accionGet, accionGetNext } from '../services/API-marvel'
+import {constantes} from '../assets/custom/Strings'
 const personajesReducer = createSlice({
     name: 'personajes',
     initialState: {},
@@ -19,7 +20,7 @@ export const obtenerAll = () => {
         accionGet()
         .then(res => {
             dispatch(AllPersonajes(res.data.data));
-            window.localStorage.setItem('PersonajesMarvel', JSON.stringify(res.data.data));
+            window.localStorage.setItem(constantes.TEXT_DATA_LOCAL, JSON.stringify(res.data.data));
 
         })
     }

@@ -58,6 +58,7 @@ export const mover = (dir ,dispatch) => {
             }
 }
 export const efectDarkMode = () => {
+    // animacion del boton para cambiar modo oscuro
     const rootBase = document.querySelector('#root')
     const Sun = document.querySelector('#Layer_Sun')
     const Moon = document.querySelector('#Layer_Moon')

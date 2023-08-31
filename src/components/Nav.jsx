@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Nav() {
   const [menuDrop, setMenuDrop] = useState(false);
   return (
-    <nav  className="bg-white shadow dark:bg-gray-800 relative">
+    <nav  className="bg-white shadow dark:bg-gray-800 fixed w-full left-0">
     <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center">
             <div className="flex items-center justify-between">
@@ -25,13 +25,13 @@ export default function Nav() {
                 </div>
             </div>
 
-            <div className={`${menuDrop ? '-translate-x-0 opacity-100 block ' : 'opacity-0 translate-x-full'} absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between`}>
+            <div className={`${menuDrop ? '-translate-x-0 opacity-100 block ' : 'opacity-0 translate-x-full'} absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-end lg:gap-3 xl:justify-evelyn xl:gap-[0rem]`}>
+                {/* menu */}
                 <div className="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
-                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">features</a>
-                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">downloads</a>
-                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">docs</a>
+                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Historys</a>
+                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Charters</a>
+                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Comics</a>
                     <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">support</a>
-                    <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">blog</a>
     
                     <div className="relative mt-4 lg:mt-0 lg:mx-4">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -43,7 +43,7 @@ export default function Nav() {
                         <input type="text" className="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600" placeholder="Search" />
                     </div>
                 </div>
-    
+                {/* iconos */}
                 <div className="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
                     <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300" aria-label="Reddit">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

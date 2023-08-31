@@ -8,8 +8,8 @@ describe('CONECTION API', () => {
     test('obtener personajes', () => { 
         return accionGet().then((res) => {
             // console.log('respuesta',res)
-            expect(res.data).toHaveProperty('code');
-            expect(res.data).toHaveProperty('status');
+            expect(res.data).toHaveProperty('code' , 200);
+            expect(res.data).toHaveProperty('status', 'Ok');
           }).catch((err) => {
             // console.log('error',err);
             throw new Error(err)
