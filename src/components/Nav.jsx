@@ -1,9 +1,42 @@
 import { useState } from "react";
+import {  useDispatch , useSelector } from "react-redux";
+import {SetFiltering} from "../reducer/personajesReducer"
+import { accionGetForFillter } from "../services/API-marvel";
 
 export default function Nav() {
+  const total = useSelector(state => state.personajes.total)
   const [menuDrop, setMenuDrop] = useState(false);
+  const [search, setSearch] = useState('');
+  const dispatch = useDispatch()
+
+  const handlerBuscar = async () => {
+    let x = Math.round(total / 100)
+    let i = 0
+    do {
+        i++
+       
+           const res = await funcionObtener(i) 
+            const resultado = funccionFiltrar(res , search)
+        if (resultado.length >= 1) {
+            console.log('Se encontro: ',resultado)
+            dispatch(SetFiltering(resultado))
+            break;
+        }
+     
+    } while (i <= x);
+  }
+  const funccionFiltrar = (filtrar, parametro) => {
+    return filtrar.filter(item => item.name.toLowerCase() === parametro.toLowerCase())
+
+  }
+  const funcionObtener = (i) => {
+    return accionGetForFillter(i)
+    .then(res => res.data.data.results)
+    .catch(err => console.log(err));
+  }
+  
   return (
-    <nav  className="bg-white shadow dark:bg-gray-800 fixed w-full left-0">
+    <nav  className="bg-white shadow dark:bg-gray-800 fixed w-full left-0 z-20">
     <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center">
             <div className="flex items-center justify-between">
@@ -34,13 +67,13 @@ export default function Nav() {
                     <a href="#" className="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">support</a>
     
                     <div className="relative mt-4 lg:mt-0 lg:mx-4">
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <span onClick={handlerBuscar} className="absolute cursor-pointer inset-y-0 left-0 flex items-center pl-3">
                             <svg className="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
                                 <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                             </svg>
                         </span>
     
-                        <input type="text" className="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600" placeholder="Search" />
+                        <input type="text" onChange={(e) => setSearch(e.target.value)} className="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600" placeholder="Search" />
                     </div>
                 </div>
                 {/* iconos */}

@@ -29,7 +29,7 @@ export default function DropdownComponent({children ,text, id}) {
                 </button>
 
                 <div id={`drop-${id}`} className="hidden transition-[block] h-screen w-full bg-gray-500 bg-opacity-50 top-0 left-0 px-1 py-2 fixed z-20 items-center"
-                onClick={handelOcultar}>
+                >
                 
                 <button
                     onClick={handelOcultar}

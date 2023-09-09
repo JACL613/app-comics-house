@@ -1,14 +1,20 @@
 import {createSlice} from '@reduxjs/toolkit'
-import { accionGet, accionGetNext } from '../services/API-marvel'
+import { accionGet,  accionGetNext } from '../services/API-marvel'
 import {constantes} from '../assets/custom/Strings'
 const personajesReducer = createSlice({
     name: 'personajes',
     initialState: {},
     reducers:{
         AllPersonajes(state,action){
-            return action.payload
+            // almacena todos los personajes en el estado global
+            return {...state ,...action.payload}
+        },
+        SetPersonajes(state, action){
+            // Remplaza los personajes que se renderizan por los filtrados
+            return {...state,results: action.payload,count: action.payload.length }
         },
         ResetPersonajes(state, action){
+            // devuelve el estado al inicial
             console.log(action.payload);
             return {}
         }
@@ -17,6 +23,7 @@ const personajesReducer = createSlice({
 
 export const obtenerAll = () => {
     return dispatch => {
+    // accion para obtener todos los personajes y almacenarlos en el redux
         accionGet()
         .then(res => {
             dispatch(AllPersonajes(res.data.data));
@@ -27,16 +34,23 @@ export const obtenerAll = () => {
 }
 export const obtenerLocal = (data) => {
     return dispatch => {
+    // accion que almacena los datos locales en el estado global
         dispatch(AllPersonajes(data))
     }
 }
 export const obtenerNext = (count) => {
-    console.log(count);
     return dispatch => {
+    // accion que obtiene el siguiente grupo de items y los almacena
         accionGetNext(count)
         .then(res => {console.log(res); dispatch(AllPersonajes(res.data.data))})
         .catch(err => console.error(err))
     }
 }
-export const {AllPersonajes} = personajesReducer.actions
+export const SetFiltering = (data) => {
+    return dispatch => {
+    // accion para almacenar personajes filtrados
+    dispatch(SetPersonajes(data))
+   }
+}
+export const {AllPersonajes , SetPersonajes} = personajesReducer.actions
 export default personajesReducer.reducer
