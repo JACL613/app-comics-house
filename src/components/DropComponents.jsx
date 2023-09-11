@@ -34,7 +34,7 @@ export default function DropdownComponent({children ,text, id}) {
                 <button
                     onClick={handelOcultar}
                     type="button"
-                    className=" px-2 text-gray-600 absolute top-0 hover:text-gray-700 rounded-r-md hover:bg-gray-50  z-10"
+                    className=" px-2 text-gray-600 absolute top-2 left-2 hover:text-gray-700 rounded-md hover:bg-gray-50  z-10"
                 >
                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" id="close"><path d="M38 12.83 35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg> 
                 </button>
