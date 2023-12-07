@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react'
 import './App.css'
-import ListCharacterMarvel from './components/listCharacterMarvel'
+import ListCharacterMarvel from './components/ListCharacterMarvel'
 import { obtenerAll , obtenerLocal } from './reducer/personajesReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import Nav from './components/Nav'
