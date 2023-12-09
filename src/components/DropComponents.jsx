@@ -1,27 +1,15 @@
 import {  useState } from "react";
+import { handelOcultar } from "../assets/Utils/functions";
 
 export default function DropdownComponent({children ,text, id}) {
     const [drop, setDrop] = useState(true);
-    const handelOcultar = () => {
-        if (drop === true) {
-            document.querySelector(`#drop-${id}`).classList.remove('hidden')
-            document.querySelector(`#drop-${id}`).classList.add('inline-flex')
-            setDrop(!drop)
-            
-        } else {
-            
-            document.querySelector(`#drop-${id}`).classList.remove('inline-flex')
-            document.querySelector(`#drop-${id}`).classList.add('hidden')
-            setDrop(!drop)
-        }
     
-    }
     return (
         <div className="">
         
 
                 <button
-                    onClick={handelOcultar}
+                    onClick={() => handelOcultar(drop,e => setDrop(e) , id)}
                     type="button"
                     className="inline-flex items-center justify-center h-full px-2 text-gray-600 p-1  rounded-r-md hover:bg-gray-700 hover:text-gray-50 dark:hover:bg-gray-200 dark:hover:text-gray-700  active:bg-gray-50 dark:text-white"
                 >
@@ -32,7 +20,7 @@ export default function DropdownComponent({children ,text, id}) {
                 >
                 
                 <button
-                    onClick={handelOcultar}
+                    onClick={() => handelOcultar(drop,e => setDrop(e) , id)}
                     type="button"
                     className=" px-2 text-gray-600 absolute top-2 left-2 hover:text-gray-700 rounded-md hover:bg-gray-50  z-10"
                 >

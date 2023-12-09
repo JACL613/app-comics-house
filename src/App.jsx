@@ -35,7 +35,7 @@ function App() {
    {
     personajes.count >= 1
     ? <ListCharacterMarvel/>
-    :<h1>No hay personajes</h1>
+    :null
    }
    </div>
   )

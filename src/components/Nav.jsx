@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {  useDispatch , useSelector } from "react-redux";
 import {SetFiltering} from "../reducer/personajesReducer"
-import { accionGetForFillter } from "../services/API-marvel";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { buscarComic } from "../assets/Utils/functions";
 
 export default function Nav() {
   const total = useSelector(state => state.personajes.total)
@@ -14,30 +14,13 @@ export default function Nav() {
 
   const handlerBuscar = async (e) => {
     e.preventDefault()
-    let x = Math.round(total / 100)
-    let i = 0
-    do {
-        i++
-       
-           const res = await funcionObtener(i) 
-            const resultado = funccionFiltrar(res , search)
-        if (resultado.length >= 1) {
-            console.log('Se encontro: ',resultado)
-            dispatch(SetFiltering(resultado))
-            break;
-        }
-     
-    } while (i <= x);
+    const resultado = await buscarComic(total, search)
+    if (resultado != null) {
+        dispatch(SetFiltering(resultado))
+    }
   }
-  const funccionFiltrar = (filtrar, parametro) => {
-    return filtrar.filter(item => item.name.toLowerCase() === parametro.toLowerCase())
-
-  }
-  const funcionObtener = (i) => {
-    return accionGetForFillter(i)
-    .then(res => res.data.data.results)
-    .catch(err => console.log(err));
-  }
+  
+  
   
   return (
     <nav  className="bg-white shadow dark:bg-gray-800 fixed w-full left-0 z-20">
