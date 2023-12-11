@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit'
 import personajesReducer from './reducer/personajesReducer'
 
 const store = configureStore({
-    reducer:{
-        personajes: personajesReducer
-    }
+  reducer: {
+    personajes: personajesReducer
+  }
 })
 
 export default store
