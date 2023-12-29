@@ -39,10 +39,13 @@ export const obtenerLocal = (data) => {
 }
 export const obtenerNext = (count) => {
   return dispatch => {
+    dispatch(ResetPersonajes())
     // accion que obtiene el siguiente grupo de items y los almacena
-    accionGetNext(count)
-      .then(res => { console.log(res); dispatch(AllPersonajes(res.data.data)) })
-      .catch(err => console.error(err))
+    setTimeout(() => {
+      accionGetNext(count)
+        .then(res => { console.log(res); dispatch(AllPersonajes(res.data.data)) })
+        .catch(err => console.error(err))
+    }, 200)
   }
 }
 export const SetFiltering = (data) => {
@@ -51,5 +54,5 @@ export const SetFiltering = (data) => {
     dispatch(SetPersonajes(data))
   }
 }
-export const { AllPersonajes, SetPersonajes } = personajesReducer.actions
+export const { AllPersonajes, SetPersonajes, ResetPersonajes } = personajesReducer.actions
 export default personajesReducer.reducer

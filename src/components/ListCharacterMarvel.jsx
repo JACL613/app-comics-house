@@ -1,11 +1,15 @@
 import { useSelector } from 'react-redux'
 import DropdownComponent from './DropComponents'
-import CardCharacter from './CardCharacter'
+import CardCharacter from './Card'
 import Pagination from './Pagination'
+import { useEffect, useState } from 'react'
 
 export default function ListCharacterMarvel () {
+  const [personajes, setPersonajes] = useState([])
   const data = useSelector(state => state.personajes)
-  const personajes = data.results
+  useEffect(() => {
+    setPersonajes(data.results)
+  }, [data.results])
   const FunccionExtrer = (cadena, a, b) => cadena.substring(a, b)
 
   return (
@@ -30,7 +34,11 @@ export default function ListCharacterMarvel () {
                         <p className='text-sm leading-6 text-gray-500 dark:text-neutral-200'>{`Comics:${personaje.comics.available}`}</p>
 
                         <DropdownComponent text='Ver' id={personaje.id}>
-                            <CardCharacter personaje={personaje}>
+                            <CardCharacter
+                            imgURL={`${personaje.thumbnail.path}.${personaje.thumbnail.extension}`}
+                            name={personaje.name}
+                            description={personaje.description}
+                            >
 
                             </CardCharacter>
 
