@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { SetFiltering } from '../reducer/personajesReducer'
+import { ResetPersonajes, SetFiltering, obtenerAll } from '../reducer/personajesReducer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
@@ -15,6 +15,10 @@ export default function Nav () {
 
   const handlerBuscar = async (e) => {
     e.preventDefault()
+    if (search === '') {
+      dispatch(obtenerAll())
+    }
+    dispatch(ResetPersonajes())
     const resultado = await buscarComic(total, search)
     if (resultado != null) {
       dispatch(SetFiltering(resultado))

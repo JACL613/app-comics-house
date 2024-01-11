@@ -13,6 +13,10 @@ export const handelOcultar = (drop, setDrop, id) => {
 }
 
 export const buscarComic = async (total, search) => {
+  if (search === '') {
+    return null
+  }
+
   const x = Math.round(total / 100)
   let i = 0
   do {
