@@ -5,6 +5,7 @@ import { obtenerAll, obtenerLocal } from './reducer/personajesReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import Nav from './components/Nav'
 import { constantes } from './assets/custom/Strings.js'
+import Loader from './components/Loader.jsx'
 // import DropdownComponent from './components/DropComponents'
 // import NavBar from './components/NavBar'
 
@@ -29,7 +30,7 @@ function App () {
       {/* <DropdownComponent/> */}
       {/* <NavBar/> */}
       <Nav />
-      {personajes.count >= 1 ? <ListCharacterMarvel /> : null}
+      {personajes.count >= 1 ? <ListCharacterMarvel /> : <Loader />}
     </div>
   )
 }

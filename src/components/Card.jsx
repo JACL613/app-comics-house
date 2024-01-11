@@ -8,15 +8,15 @@ export default function CardCharacter ({ personaje, imgURL, name, description })
 
             <p className='text-[#7C7C80] font-[15px] mt-6'>
               {
-                description || 'Our shrimp sauce is made with mozarella, a creamy taste of shrimp with extra kick of spices.'
+                description || 'No description'
               }
             </p>
 
               <a className='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                   View on foodies
               </a>
-            <a className='block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
-                  Download app
+              <a className='block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
+              more information
               </a>
           </div>
     </div>
