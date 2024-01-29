@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Nav from './components/Nav'
 import { constantes } from './assets/custom/Strings.js'
 import Loader from './components/Loader.jsx'
+import Pagination from './components/Pagination.jsx'
 // import DropdownComponent from './components/DropComponents'
 // import NavBar from './components/NavBar'
 
@@ -30,7 +31,10 @@ function App () {
       {/* <DropdownComponent/> */}
       {/* <NavBar/> */}
       <Nav />
+      <main className='bg-neutral-100 dark:bg-slate-600'>
       {personajes.count >= 1 ? <ListCharacterMarvel /> : <Loader />}
+      <Pagination count={personajes.total} />
+      </main>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import DropdownComponent from './DropComponents'
 import CardCharacter from './Card'
-import Pagination from './Pagination'
 import { useEffect, useState } from 'react'
 
 export default function ListCharacterMarvel () {
@@ -14,7 +13,7 @@ export default function ListCharacterMarvel () {
 
   return (
     <ul
-    className='bg-neutral-100 dark:bg-slate-600 divide-y px-2 py-1 mt-24 justify-center md:mt-32 divide-gray-400 grow overflow-auto w-full rounded-md lg:flex lg:justify-evenly lg:items-center lg:flex-wrap lg:divide-none'>
+    className=' divide-y px-2 py-1 mt-24 justify-center md:mt-32 divide-gray-400 grow overflow-auto w-full rounded-md lg:flex lg:justify-evenly lg:items-center lg:flex-wrap lg:divide-none'>
         {
             personajes.map((personaje) => {
               return (
@@ -49,7 +48,6 @@ export default function ListCharacterMarvel () {
             })
         }
         {/* <NavListCharacters count={data.total}/> */}
-        <Pagination count={data.total} />
     </ul>
   )
 }
