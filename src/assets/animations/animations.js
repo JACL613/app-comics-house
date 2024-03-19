@@ -49,7 +49,7 @@ export const handelSetPuntero = (
   if (indice >= 4 && indice <= elementos.length - 2) {
     // cambia el item y puntero directamente
     // mientras entre en el campo de vision
-    setPuntero(i - 1)
+    setPuntero(i)
     setIndice(i + 3)
   }
 }

@@ -1,16 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { handelNext, handelPreview, handelSetPuntero } from '../assets/animations/animations'
 
 export default function Pagination ({ count }) {
   const [puntero, setPuntero] = useState(1)
   const [indice, setIndice] = useState(4)
+  const [elementos, setElementos] = useState([])
   const dispatch = useDispatch()
 
-  // define la cantidad de item como un arreglo
-  const x = Number.parseInt(count / 20)
-  const elementos = Array.from({ length: x }, (_, i) => i + 1)
-  // fin
+  useEffect(() => {
+    console.log('actualizacion')
+    // define la cantidad de item como un arreglo
+    const x = Number.parseInt(count / 20)
+    const datos = Array.from({ length: x }, (_, i) => i + 1)
+    // fin
+    setElementos(datos)
+  }, [!count])
 
   return (
 <div className="flex justify-between sm:justify-center">
@@ -32,8 +37,9 @@ export default function Pagination ({ count }) {
     {
         elementos.map((el, i) => {
           if (i <= indice && i >= puntero - 1) {
+            console.log(puntero, el)
             return (
-    <a onClick={() => handelSetPuntero(el, indice, e => setPuntero(e), e => setIndice(e), dispatch, elementos)} id={`item-nav-${el}`} href="#" key={el} className="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline  dark:bg-gray-800 dark:text-gray-200 hover:bg-red-500 dark:hover:bg-red-500 hover:text-white dark:hover:text-gray-200">
+    <a onClick={() => handelSetPuntero(el, indice, e => setPuntero(e), e => setIndice(e), dispatch, elementos)} id={`item-nav-${el}`} href="#" key={el} className={`hidden px-4 py-2   mx-1 text-gr a y-700 transition-colors duration-300 transform  rounded-md sm:inline  dark:bg-gray-800 dark:text-gray-200 hover:bg-red-500 dark:hover:bg-red-500 hover:text-white dark:hover:text-gray-200 ${puntero === el ? 'bg-red-500' : 'bg-white'} `} >
         {el}
     </a>
             )
