@@ -24,7 +24,7 @@ export default function ListCharacterMarvel () {
                         className='h-12 w-12 flex-none rounded-full bg-gray-50 lg:rounded-none lg:min-h-[100%] lg:w-full' src={`${personaje.thumbnail.path}.${personaje.thumbnail.extension}`}/>
                         <div
                         className='p-2 lg:h-min lg:flex lg:justify-between [&>h3]:text-sm [&>h3]:font-semibold [&>h3]:leading-6 [&>h3]:text-gray-900 [&>h3]:dark:text-white [&>date]:mt-1 [&>date]:truncate [&>date]:text-xs [&>date]:leading-5 [&>date]:text-gray-500 [&>date]:dark:text-neutral-200'>
-                            <h3 >{personaje.name}</h3>
+                            <h3 >Name: {personaje.name}</h3>
                             <h3 >Modified: {FunccionExtrer(personaje.modified, 0, 10)}</h3>
                         </div>
                     </div>

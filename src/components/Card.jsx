@@ -22,10 +22,10 @@ export default function CardCharacter ({
           </a>
         </div>
         <p className="font-bold text-gray-700 text-[22px] leading-7 mb-1">
-          {name}
+          Name:{name}
         </p>
         <p className="text-[#7C7C80] font-[15px] mt-6">
-          {description || 'No description'}
+          Description:{description || 'No description'}
         </p>
         <a className="block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
           See More

@@ -31,7 +31,7 @@ function App () {
       {/* <DropdownComponent/> */}
       {/* <NavBar/> */}
       <Nav />
-      <main className='bg-neutral-100 dark:bg-slate-600'>
+      <main className='bg-neutral-100 pb-3 dark:bg-slate-600'>
       {personajes.count >= 1 ? <ListCharacterMarvel /> : <Loader />}
       <Pagination count={personajes.total} />
       </main>
